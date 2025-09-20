@@ -12,7 +12,6 @@ export default function MenuPage() {
   const {startLoading,stopLoading}=useLoading();
   const {addButtonController}=useAddItems();
   const { data: items,isLoading } = useItems();
-  console.log(items)
   const filteredItems = items?.filter((item) =>
     item.item_name.toLowerCase().includes(search.toLowerCase())
   );
