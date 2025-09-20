@@ -10,8 +10,10 @@ import { useMemo } from "react";
 const Index = () => {
   const navigate=useNavigate();
   const {data:items,isLoading}=useItems();
+  console.log(items)
   const {addButtonController,buttonStateFalse}=useAddItems();
   const {data:booking}=useBookings();
+  console.log(booking)
 
   const isReserved=useMemo(()=>{
     const findB=booking?.find(b=> b.status==="Reserved");
@@ -41,8 +43,8 @@ const Index = () => {
                 className="animate-slide-up"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <DishCard name={dish.item_name} isReserved={isReserved}  itemId={dish.id} description={dish.description} price={dish.price} image={dish.item_image} rating={4.5}
-                 />
+                {/* <DishCard name={dish.item_name} isReserved={isReserved}  itemId={dish.id} description={dish.description} price={dish.price} image={dish.item_image} rating={4.5}
+                 /> */}
               </div>
             ))}
           </div>
