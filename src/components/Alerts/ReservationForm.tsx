@@ -18,7 +18,7 @@ interface ItemProps {
 
 export default function SetTimingForm({ onCancel,items }: ItemProps) {
 
-  const stripePromise= loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+  const stripePromise= loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE);
   const user=useSelector((state:any)=>state.auth.loggedInUser);
   const now=new Date();
   const minDateTime = now.toISOString().slice(0, 16);
