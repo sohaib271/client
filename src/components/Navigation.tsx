@@ -17,7 +17,7 @@ const Navigation = () => {
   const navItems = [
     { name: "Home", icon: Home, href: "/home" },
     { name: "Menu", icon: ChefHat, href: "/menu" },
-    ...(user.role==="Customer"?[{ name: "My Table", icon: Utensils, href: "/mytable" }]:[]),
+    ...(user?.role==="Customer"?[{ name: "My Table", icon: Utensils, href: "/mytable" }]:[]),
     { name: user?"Dashboard":"Sign In", icon: User, href: user?"/dashboard":"/signin" },
   ];
 
