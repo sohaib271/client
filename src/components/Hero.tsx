@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Calendar, ChefHat, ArrowRight } from "lucide-react";
-import heroImage from "@/assets/hero-restaurant.jpg";
+import heroImage from "../assets/hero-restaurant.jpg";
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {

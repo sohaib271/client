@@ -12,7 +12,6 @@ interface DishCardProps {
   price?: string;
   image?: string;
   rating?: number;
-  // addItems?: (id: number, quantity: number) => void;
   deleteItem?: (id: number) => void; 
   itemId?: number;
   isReserved?:boolean;
