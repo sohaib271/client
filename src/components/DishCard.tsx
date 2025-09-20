@@ -28,7 +28,7 @@ const DishCard = ({ name, itemId, description, price, image, rating, deleteItem,
   const decreaseQuantity = () => quantity > 1 && setQuantity(prev => prev - 1);
 
   const handleAdd = () => {
-    addItems(itemId, quantity);
+    addItems(itemId, quantity,user.id);
     buttonHandler();
     setButtonController(true)
   }; 

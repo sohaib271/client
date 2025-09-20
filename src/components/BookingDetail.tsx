@@ -124,7 +124,7 @@ export default function BookingDetails() {
                 <Button
                   onClick={()=>updateStatus("Served")}
                   className="bg-gold text-black hover:bg-yellow-400 rounded-xl px-4"
-                  disabled={time!==matchedBooking.reservedFrom}
+                  disabled={time<=matchedBooking.reservedFrom}
                 >
                   Mark as Served
                 </Button>

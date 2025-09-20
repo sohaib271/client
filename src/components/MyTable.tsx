@@ -7,7 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteItem,persistor } from "./exporter/exporter";
 
 export default function MyTable() {
-const bookingItems=useSelector((state:any)=>state.booking.items)
+const items=useSelector((state:any)=>state.booking.items);
+const user=useSelector((state:any)=>state.auth.loggedInUser);
+const bookingItems=items.filter(i => i.addedBy===user.id);
   const dispatch=useDispatch();
   const [time,setTime]=useState(false);
   const totalPrice = useMemo(()=> bookingItems.reduce((acc,item)=>{
@@ -42,7 +44,7 @@ const bookingItems=useSelector((state:any)=>state.booking.items)
       </motion.h1>
 
       <div className="space-y-6">
-        {bookingItems.map((item) => (
+        {bookingItems?.map((item) => (
           <motion.div
             key={item.id}
             className="flex items-center bg-gray-800 rounded-xl shadow-md p-4"
