@@ -18,7 +18,7 @@ const Index = () => {
     if(!findB) return false;
     return true;
   },[booking])
-  // if(isLoading) return <Spinner/>
+  if(isLoading) return <Spinner/>
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
