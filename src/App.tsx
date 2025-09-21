@@ -12,7 +12,7 @@ import { PersistGate } from "redux-persist/integration/react";
 
 const queryClient = new QueryClient();
 const GoogleAuthWrapper=()=>{
-  return <GoogleOAuthProvider clientId="470291407670-0c532pu1s95vkv9l9fd4tjdm9aesiecr.apps.googleusercontent.com">
+  return <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_API}>
     <LoginPage/>
   </GoogleOAuthProvider>
 }
