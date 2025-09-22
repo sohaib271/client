@@ -20,7 +20,7 @@ interface DishCardProps {
 const DishCard = ({ name, itemId, description, price, image, rating, deleteItem,isReserved }: DishCardProps) => {
   const [quantity, setQuantity] = useState(1);
   const [buttonController, setButtonController] = useState(false);
-  const user = useSelector((state: any) => state.auth.loggedInUser);
+  const user = useSelector((state: any) => state.auth?.loggedInUser);
   const {addItems,buttonHandler}=useAddItems();
 
   const increaseQuantity = () => setQuantity(prev => prev + 1);
@@ -40,7 +40,7 @@ const DishCard = ({ name, itemId, description, price, image, rating, deleteItem,
           alt={name}
           className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        {user.role === "Admin" && (
+        {user?.role === "Admin" && (
         <button
           onClick={() => deleteItem(itemId)}
           className="absolute top-3 right-3 bg-red-500 hover:bg-red-600 text-white p-2 rounded-full transition shadow-lg"
@@ -71,7 +71,7 @@ const DishCard = ({ name, itemId, description, price, image, rating, deleteItem,
             </span>
             
             {/* Customer actions */}
-            {user.role === "Customer" && (
+            {user?.role === "Customer" && (
               <div className="flex items-center space-x-3">
                 <div className="flex items-center border border-gold rounded-lg overflow-hidden">
                   <Button
