@@ -168,35 +168,35 @@ export default function Dashboard() {
               {filteredBookings?.length > 0 ? (
                 filteredBookings?.map((booking) => (
                   <div
-                    key={booking.id}
+                    key={booking?.id}
                     className="relative flex flex-col sm:flex-row sm:justify-between sm:items-center bg-[#1F1F1F] p-3 sm:p-4 rounded-xl shadow mb-3 hover:scale-[1.02] transition"
                   >
                     <div className="space-y-1 text-sm sm:text-base mb-3 sm:mb-0">
                       <p className="flex items-center space-x-2">
                         <Clock size={16} className="text-gold shrink-0" />
                         <span>
-                          {booking.reservedFrom} - {booking.reservedTo}
+                          {booking?.reservedFrom} - {booking?.reservedTo}
                         </span>
                       </p>
                       <p className="flex items-center space-x-2">
                         <Calendar size={16} className="text-gold shrink-0" />
-                        <span>{booking.bookedAt}</span>
+                        <span>{booking?.bookedAt}</span>
                       </p>
                       <p className="flex items-center space-x-2">
                         <Hash size={16} className="text-gold shrink-0" />
-                        <span>{booking.id}</span>
+                        <span>{booking?.id}</span>
                       </p>
                       <p className="flex items-center space-x-2">
                         <DollarSign size={16} className="text-gold shrink-0" />
                         <span>
                           Rs{" "}
-                          {booking.payablePrice -
-                            Math.round(booking.payablePrice * 0.3)}
+                          {booking?.payablePrice -
+                            Math.round(booking?.payablePrice * 0.3)}
                         </span>
                       </p>
                     </div>
                     <Button
-                      onClick={() => navigate(`/bookingdetail/${booking.id}`)}
+                      onClick={() => navigate(`/bookingdetail/${booking?.id}`)}
                       className="w-full sm:w-auto bg-gold text-black font-semibold px-4 py-2 rounded-lg hover:bg-white transition flex items-center justify-center gap-2"
                     >
                       <Eye size={16} /> View Details
@@ -204,7 +204,7 @@ export default function Dashboard() {
 
                     {/* Relative time at bottom-right */}
                     <span className="absolute bottom-2 right-3 text-xs text-gray-400">
-                      {formatDistanceToNow(new Date(booking.bookedAt), {
+                      {formatDistanceToNow(new Date(booking?.bookedAt), {
                         addSuffix: true,
                       })}
                     </span>

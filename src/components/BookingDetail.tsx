@@ -4,7 +4,7 @@ import jsPDF from "jspdf"
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Download, Clock, Calendar, User, Hash, DollarSign, CheckCircle,Utensils } from "lucide-react";
-import {useBookings,useBookingData,Spinner,api,useLoading} from "./exporter/exporter"
+import {useBookings,useBookingData,SpinnerContainer,api,useLoading} from "./exporter/exporter"
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
@@ -51,9 +51,9 @@ export default function BookingDetails() {
     doc.save("finedineBookingreceipt.pdf");
   };
 
-  if(isLoading) return <Spinner/>
-
   return (
+    <>
+    <SpinnerContainer/>
     <div className="min-h-screen bg-neutral-900 text-white p-6 flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -142,5 +142,6 @@ export default function BookingDetails() {
         </Card>
       </motion.div>
     </div>
+    </>
   );
 }
