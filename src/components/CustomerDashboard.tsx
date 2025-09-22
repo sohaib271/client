@@ -165,8 +165,8 @@ export default function Dashboard() {
               <h2 className="text-base sm:text-lg font-semibold text-gold mb-4">
                 {filter} Bookings
               </h2>
-              {filteredBookings.length > 0 ? (
-                filteredBookings.map((booking) => (
+              {filteredBookings?.length > 0 ? (
+                filteredBookings?.map((booking) => (
                   <div
                     key={booking.id}
                     className="relative flex flex-col sm:flex-row sm:justify-between sm:items-center bg-[#1F1F1F] p-3 sm:p-4 rounded-xl shadow mb-3 hover:scale-[1.02] transition"
