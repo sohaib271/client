@@ -5,9 +5,11 @@ import { Search } from "lucide-react";
 import { useItems, DishCard, Spinner,api,useLoading,useAddItems } from "./exporter/exporter";
 import {useBookings,useBookingData} from "./exporter/exporter"
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function MenuPage() {
   const [search, setSearch] = useState("");
+  const user=useSelector((state:any)=>state.auth.loggedInUser)
   const navigate=useNavigate();
   const {startLoading,stopLoading}=useLoading();
   const {addButtonController}=useAddItems();
@@ -77,14 +79,14 @@ export default function MenuPage() {
           Next
         </Button>
       </div>}
-       <Button
+      {user?.role==="Admin" &&  <Button
       onClick={() => navigate("/additem")}
       variant="outline"
       size="sm"
       className="w-32 mt-3 border-gold text-gold hover:bg-gold hover:text-black transition"
     >
       Add More
-    </Button>
+    </Button>}
 
     </div>
   );

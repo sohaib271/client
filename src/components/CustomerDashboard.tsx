@@ -78,7 +78,7 @@ export default function Dashboard() {
           </h1>
 
           <div className="flex items-center gap-3">
-            {userData.role === "Admin" && (
+            {userData?.role === "Admin" && (
               <Button
                 onClick={() => navigate("/additem")}
                 className="bg-gold text-black font-semibold px-4 py-2 rounded-lg hover:bg-white transition flex items-center gap-2"
@@ -86,7 +86,7 @@ export default function Dashboard() {
                 <Plus size={16} /> Add Item
               </Button>
             )}
-            {userData.role === "Admin" && (
+            {userData?.role === "Admin" && (
               <Button
                 onClick={() => navigate("/customerinfo")}
                 className="bg-gold text-black font-semibold px-4 py-2 rounded-lg hover:bg-white transition flex items-center gap-2"
@@ -98,7 +98,7 @@ export default function Dashboard() {
               <DropdownMenuTrigger className="flex items-center space-x-3 focus:outline-none">
                 <span className="text-sm sm:text-base">{userData?.name}</span>
                 <img
-                  src={userData.image}
+                  src={userData?.image}
                   alt="Customer"
                   className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-gold animate-fade"
                 />
