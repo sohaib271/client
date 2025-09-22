@@ -63,7 +63,7 @@ export default function Dashboard() {
   };
 
   const filteredBookings = refinedData?.filter(
-    (b) => b.status === filter && b.id.toString().includes(search.toLowerCase())
+    (b) => b?.status === filter && b?.id.toString().includes(search.toLowerCase())
   );
 
   if (isLoading) return <Spinner />;
