@@ -1,6 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { formatDistanceToNow } from "date-fns";
 import {
   Calendar,
   Clock,
@@ -205,17 +204,6 @@ export default function Dashboard() {
                     >
                       <Eye size={16} /> View Details
                     </Button>
-
-                    <span className="absolute bottom-2 right-3 text-xs text-gray-400">
-                      {booking?.bookedAt
-                        ? formatDistanceToNow(
-                            new Date(booking.bookedAt.replace(" ", "T")),
-                            {
-                              addSuffix: true,
-                            }
-                          )
-                        : "Unknown"}
-                    </span>
                   </div>
                 ))
               ) : (
