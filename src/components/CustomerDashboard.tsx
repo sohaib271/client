@@ -202,12 +202,12 @@ export default function Dashboard() {
                       <Eye size={16} /> View Details
                     </Button>
 
-                    {/* Relative time at bottom-right */}
+                    {/* Relative time at bottom-right
                     <span className="absolute bottom-2 right-3 text-xs text-gray-400">
                       {formatDistanceToNow(new Date(booking?.bookedAt.replace(" ","T")), {
                         addSuffix: true,
                       })}
-                    </span>
+                    </span> */}
                   </div>
                 ))
               ) : (
