@@ -204,7 +204,7 @@ export default function Dashboard() {
 
                     {/* Relative time at bottom-right */}
                     <span className="absolute bottom-2 right-3 text-xs text-gray-400">
-                      {formatDistanceToNow(new Date(booking?.bookedAt), {
+                      {formatDistanceToNow(new Date(booking?.bookedAt.replace(" ","T")), {
                         addSuffix: true,
                       })}
                     </span>
