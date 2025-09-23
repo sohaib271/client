@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import {AlreadyLoggedInPopup,api,useLoading,removeData,persistor,SpinnerContainer} from "../exporter/exporter";
 import { useNavigate } from "react-router-dom";
+import { CheckCircle } from "lucide-react";
 
 
 export function ConfimBooking(){
@@ -20,7 +21,7 @@ export function ConfimBooking(){
       dispatch(removeData());
       persistor.purge();
       stopLoading();
-      navigate("/dashboard")
+      navigate("/")
     } catch (error) {
       console.log("Error posting data")
     }
@@ -29,7 +30,7 @@ export function ConfimBooking(){
 
   return <>
     <SpinnerContainer/>
-    <AlreadyLoggedInPopup heading="Payment Successful" paragraph="Your table has been booked. Check dashboard for further information." onConfirm={sendData} buttonContent="Click to Confirm"/>
+    <AlreadyLoggedInPopup icon={CheckCircle} heading="Payment Successful" paragraph="Your table has been booked. Check dashboard for further information." onConfirm={sendData} buttonContent="Click to Confirm"/>
   </>
 }
 

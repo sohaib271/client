@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 interface AlertProps {
+  icon:React.ElementType
   heading? : string
   paragraph?:string
   buttonContent? : string
@@ -10,7 +10,7 @@ interface AlertProps {
   onConfirm?:()=>void;
 }
 
-const AlreadyLoggedInPopup = ({heading,paragraph,buttonContent,route,onConfirm}:AlertProps) => {
+const AlreadyLoggedInPopup = ({icon:Icon,heading,paragraph,buttonContent,route,onConfirm}:AlertProps) => {
   const navigate = useNavigate();
 
   const handleClick=async()=>{
@@ -30,7 +30,7 @@ const AlreadyLoggedInPopup = ({heading,paragraph,buttonContent,route,onConfirm}:
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="bg-[#1C1C1C] text-center p-6 rounded-2xl shadow-lg max-w-sm w-full border-t-4 border-gold"
       >
-        <CheckCircle size={50} className="text-gold mx-auto mb-4" />
+        <Icon size={50} className="text-gold mx-auto mb-4" />
         <h2 className="text-xl font-semibold text-white">{heading}</h2>
         <p className="text-white mt-2">{paragraph}</p>
         <button

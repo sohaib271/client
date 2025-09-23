@@ -3,8 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Clock, Trash } from "lucide-react";
 import {SetTimingForm} from "./exporter/exporter"
 import { useState,useMemo } from "react";
+import { CgDanger } from "react-icons/cg";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteItem,persistor } from "./exporter/exporter";
+import { deleteItem,persistor, AlreadyLoggedInPopup } from "./exporter/exporter";
 
 export default function MyTable() {
 const items=useSelector((state:any)=>state.booking.items);
@@ -35,6 +36,7 @@ const bookingItems=items.filter(i => i.addedBy===user.id);
    <>
     <div className="min-h-screen bg-[#1a1a1a] text-white p-6">
       {time && <SetTimingForm items={bookingItems} onCancel={cancel}/>}
+      {bookingItems.length==0 && <AlreadyLoggedInPopup icon={CgDanger} heading="Empty Table" paragraph="No Items added to table. Please add items to book reservation." buttonContent="Go Back to Home" route="/"/>}
       <motion.h1
         className="text-3xl font-bold text-center text-gold mb-8"
         initial={{ opacity: 0, y: -20 }}

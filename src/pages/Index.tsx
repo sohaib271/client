@@ -118,7 +118,7 @@ const Index = () => {
             <p className="text-lg text-muted-foreground mb-8">
               Reserve your table now and indulge in a culinary journey that will create lasting memories
             </p>
-            <Button variant="gold" size="lg" className="animate-gold-glow">
+            <Button onClick={()=> navigate("/mytable")} variant="gold" size="lg" className="animate-gold-glow">
               Book Your Table Now
             </Button>
           </div>
@@ -159,7 +159,7 @@ const Index = () => {
               <div className="space-y-2 text-muted-foreground">
                 <p>Instagram: @finedine</p>
                 <p>Facebook: FineDine Restaurant</p>
-                <p>Twitter: @finedine_nyc</p>
+                <p>Twitter: @finedine_sohaib</p>
               </div>
             </div>
           </div>

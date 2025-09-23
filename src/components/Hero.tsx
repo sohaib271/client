@@ -33,6 +33,7 @@ const Hero = () => {
               variant="gold" 
               size="lg" 
               className="group min-w-[200px]"
+              onClick={()=>navigate("/mytable")}
             >
               <Calendar className="h-5 w-5 mr-2" />
               Reserve Your Table

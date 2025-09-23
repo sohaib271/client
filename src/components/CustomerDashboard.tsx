@@ -22,6 +22,7 @@ import {
   useBookings,
   useBookingData,
   Spinner,
+  AlreadyLoggedInPopup
 } from "./exporter/exporter";
 import { useNavigate } from "react-router-dom";
 import {
@@ -31,6 +32,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useState } from "react";
+import { CgUnavailable } from "react-icons/cg";
 
 interface RootState {
   auth: {
@@ -63,7 +65,8 @@ export default function Dashboard() {
   };
 
   const filteredBookings = refinedData?.filter(
-    (b) => b?.status === filter && b?.id.toString().includes(search.toLowerCase())
+    (b) =>
+      b?.status === filter && b?.id.toString().includes(search.toLowerCase())
   );
 
   if (isLoading) return <Spinner />;
@@ -71,6 +74,7 @@ export default function Dashboard() {
   return (
     <>
       <SpinnerContainer />
+      {userData==null && <AlreadyLoggedInPopup icon={CgUnavailable} heading="Not Allowed" paragraph="You are logged out. Please login again to access dashboard" buttonContent="Go Back" route="/"/>}
       <div className="min-h-screen bg-[#1C1C1C] text-white p-4 sm:p-6">
         <header className="flex flex-col sm:flex-row justify-between items-center mb-6 sm:mb-8 gap-4">
           <h1 className="text-xl sm:text-2xl font-bold text-gold animate-fade-down text-center sm:text-left">
@@ -202,12 +206,16 @@ export default function Dashboard() {
                       <Eye size={16} /> View Details
                     </Button>
 
-                    {/* Relative time at bottom-right
                     <span className="absolute bottom-2 right-3 text-xs text-gray-400">
-                      {formatDistanceToNow(new Date(booking?.bookedAt.replace(" ","T")), {
-                        addSuffix: true,
-                      })}
-                    </span> */}
+                      {booking?.bookedAt
+                        ? formatDistanceToNow(
+                            new Date(booking.bookedAt.replace(" ", "T")),
+                            {
+                              addSuffix: true,
+                            }
+                          )
+                        : "Unknown"}
+                    </span>
                   </div>
                 ))
               ) : (

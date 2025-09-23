@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
 import {useGoogleLogin} from "@react-oauth/google"
+import { CheckCircle } from "lucide-react";
 import { googleAuth,useLoading,addUser,SpinnerContainer,AlreadyLoggedInPopup } from "./exporter/exporter"
 import {useDispatch, useSelector} from "react-redux"
 import { useNavigate } from "react-router-dom";
@@ -51,7 +52,7 @@ export default function LoginPage() {
         transition={{ duration: 0.6 }}
         className="w-full max-w-md bg-[#1C1C1C] rounded-2xl shadow-xl p-8 text-center"
       >
-       {user && <AlreadyLoggedInPopup heading="You are already logged in."  paragraph="You don't need to sign in again."  buttonContent="Go back to Home Page" route="/"/>}
+       {user && <AlreadyLoggedInPopup icon={CheckCircle} heading="You are already logged in."  paragraph="You don't need to sign in again."  buttonContent="Go back to Home Page" route="/"/>}
         <h1 className="text-3xl font-bold text-[#EBC634] mb-2">Sign In</h1>
         <p className="text-gray-400 mb-8">Sign in to continue your reservation</p>
 
