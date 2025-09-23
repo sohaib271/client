@@ -39,7 +39,7 @@ interface RootState {
 }
 
 export default function Dashboard() {
-  const userData = useSelector((state: RootState) => state.auth.loggedInUser);
+  const userData = useSelector((state: RootState) => state?.auth?.loggedInUser);
   const navigate = useNavigate();
   const { startLoading, stopLoading } = useLoading();
   const dispatch = useDispatch();
