@@ -32,7 +32,7 @@ export default function BookingDetails() {
   const matchedBooking=useMemo(()=>refinedData.find((b) => b.id===Number(bookingId)),[refinedData]);
   const today=new Date();
   const time=today.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"});
-  console.log(time<=matchedBooking.reservedFrom)
+  
   const handleDownloadSlip = () => {
     const doc=new jsPDF({
       unit:'mm',
