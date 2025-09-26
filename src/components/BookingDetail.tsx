@@ -139,7 +139,7 @@ export default function BookingDetails() {
               </Button>}
             </div>
             {userData.role==="Customer" && <p className="text-gold text-xs">Note : You have to show the downloaded slip on Reception</p>}
-            {(time!==matchedBooking.reservedFrom && userData.role==="Admin") && <p className="text-gold text-xs">Note : This button is disabled till reservation time</p>}
+            {((time<matchedBooking.reservedFrom || dt<matchedBooking.reservedDate) && userData.role==="Admin") && <p className="text-gold text-xs">Note : This button is disabled till reservation time</p>}
           </CardContent>
         </Card>
       </motion.div>
