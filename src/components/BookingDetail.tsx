@@ -4,7 +4,7 @@ import jsPDF from "jspdf"
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Download, Clock, Calendar, User, Hash, DollarSign, CheckCircle,Utensils } from "lucide-react";
-import {useBookings,useBookingData,SpinnerContainer,api,useLoading} from "./exporter/exporter"
+import {useBookings,useBookingData,SpinnerContainer,api,useLoading, Spinner} from "./exporter/exporter"
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
@@ -32,6 +32,7 @@ export default function BookingDetails() {
   const matchedBooking=useMemo(()=>refinedData.find((b) => b.id===Number(bookingId)),[refinedData]);
   const today=new Date();
   const time=today.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"});
+  const dt=today.toLocaleDateString();
   
   const handleDownloadSlip = () => {
     const doc=new jsPDF({
@@ -51,6 +52,7 @@ export default function BookingDetails() {
     doc.save("finedineBookingreceipt.pdf");
   };
 
+  if(isLoading) return <Spinner/>
   return (
     <>
     <SpinnerContainer/>
@@ -124,7 +126,7 @@ export default function BookingDetails() {
                 <Button
                   onClick={()=>updateStatus("Served")}
                   className="bg-gold text-black hover:bg-yellow-400 rounded-xl px-4"
-                  disabled={time<=matchedBooking.reservedFrom}
+                  disabled={time<matchedBooking.reservedFrom || dt<matchedBooking.reservedDate}
                 >
                   Mark as Served
                 </Button>
